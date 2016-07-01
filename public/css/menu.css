@@ -1,0 +1,228 @@
+
+    .screen {
+        position: absolute;
+        width: 200px;
+        margin: auto;
+        height: 400px;
+        overflow: hidden;
+        left: 80%;
+        top: 2%;
+        z-index: 999;
+    }
+@media (max-height: 568px) {
+
+    .screen {
+        top: 10px;
+        bottom: auto;
+    }
+}
+@media (max-width: 400px) {
+
+    .screen {
+        top: 0;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+nav {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 200px;
+    height: 60px;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.menu-container {
+    position: relative;
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    -webkit-transition: -webkit-transform 0.25s ease-out;
+    transition: -webkit-transform 0.25s ease-out;
+    transition: transform 0.25s ease-out;
+    transition: transform 0.25s ease-out, -webkit-transform 0.25s ease-out;
+}
+
+.view-submenu .menu-container {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.screen ul {
+    position: absolute;
+    top: 50px;
+    padding: 6px;
+    width: 200px;
+    height: 408px;
+    color: #00e8ab;
+    text-align: right;
+}
+
+.screen ul li a {
+    opacity: 0;
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+    -webkit-transform: translateY(12px);
+    transform: translateY(12px);
+    -webkit-transition: opacity 0.15s 0.1s ease-out, -webkit-transform 0.15s 0.1s ease-out;
+    transition: opacity 0.15s 0.1s ease-out, -webkit-transform 0.15s 0.1s ease-out;
+    transition: opacity 0.15s 0.1s ease-out, transform 0.15s 0.1s ease-out;
+    transition: opacity 0.15s 0.1s ease-out, transform 0.15s 0.1s ease-out, -webkit-transform 0.15s 0.1s ease-out;
+    font-family: 'WorkSans-ExtraLight';
+    font-size: 14px;
+}
+
+.screen li {
+    height: 80px;
+}
+
+.screen li a:hover {
+    color: #00e8ab;
+}
+
+.menu {
+    opacity: 0;
+    -webkit-transition: background-color 0.25s ease-out, opacity 0.15s ease-out;
+    transition: background-color 0.25s ease-out, opacity 0.15s ease-out;
+}
+
+.menu.is-visible { opacity: 1; }
+
+.menu.is-visible li a {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+
+.view-submenu .menu > li > a {
+    opacity: 0;
+    -webkit-transition: opacity 0.15s ease-out;
+    transition: opacity 0.15s ease-out;
+}
+
+.submenu {
+    position: absolute;
+    top: 0;
+    text-align: right;
+    background-color: #313131;
+}
+
+.submenu li { margin-left: 60px; }
+
+.hide-submenu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 60px;
+    height: 508px;
+    cursor: pointer;
+    -webkit-transition: background-color 0.25s ease-out;
+    transition: background-color 0.25s ease-out;
+}
+
+.hide-submenu:before {
+    opacity: 0;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 12px;
+    bottom: 0;
+    margin: auto;
+    padding: 4px;
+    width: 6px;
+    height: 6px;
+    cursor: pointer;
+    font-size: 0;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    left: 0;
+    right: -6px;
+    -webkit-transition: opacity 0.1s ease-out;
+    transition: opacity 0.1s ease-out;
+}
+
+.view-submenu .hide-submenu { background-color: #3e3e3e; }
+
+.view-submenu .hide-submenu:before {
+    opacity: 1;
+    -webkit-transition: opacity 0.15s 0.3s ease-out;
+    transition: opacity 0.15s 0.3s ease-out;
+}
+
+.toggle {
+    position: absolute;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    top: 0;
+    left: 130px;
+    bottom: 0;
+    margin: auto;
+    cursor: pointer;
+}
+
+.toggle span {
+    position: relative;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 0;
+    width: 26px;
+    height: 2px;
+    background-color: #00e8ab;
+    border-radius: 100px;
+    -webkit-transition: background-color 0.2s ease-out;
+    transition: background-color 0.2s ease-out;
+}
+
+.toggle span:before, .toggle span:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #00e8ab;
+    border-radius: 100px;
+    -webkit-transition: -webkit-transform .2s ease-out;
+    transition: -webkit-transform .2s ease-out;
+    transition: transform .2s ease-out;
+    transition: transform .2s ease-out, -webkit-transform .2s ease-out;
+}
+
+.toggle span:before { bottom: calc(100% + 6px); }
+
+.toggle span:after { top: calc(100% + 6px); }
+
+.is-visible .toggle span { background-color: transparent; }
+
+.is-visible .toggle span:before {
+    bottom: auto;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.is-visible .toggle span:after {
+    top: auto;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
